@@ -23,21 +23,21 @@ function checkedValueFinder() {
 }
 function inputValueChanger(array) {
     let zero = array.includes("0");
+    let sum = 0;
     if (zero && array.length > 1) {
-        alert('Выберите логически правильные варианты ответа');
         let chbox = document.querySelectorAll('input[type=checkbox]');
         for (let i = 0; i < chbox.length; i++) {
+            chbox[i].checked = false;
             if (chbox[i].value == 0) {
-                chbox[i].checked = false;
+                chbox[i].checked = true;
             }
         }
     } else {
-        let sum = 0;
         for (let i = 0; i < array.length; i++) {
             sum += Number(array[i]);
         }
-        insertDataIntoElement(sum, 'hidden');
     };
+    insertDataIntoElement(sum, 'hidden');
 }
 
 function findValues() {
