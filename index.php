@@ -89,7 +89,10 @@ class Progression
     {
         $string = '
             <div class="box">
-                <input onclick="checkedValueFinder()" type="checkbox" value="0"> <p class="input-text">ЖИВОТНЫЕ ОТСУТСТВУЮТ</p>
+                <label class="input-text" for="collapsible' . $this->a . '" style="cursor: pointer;">
+                    <input id="collapsible' . $this->a . '" onclick="checkedValueFinder()" class="messageCheckbox" type="checkbox" value="0"> 
+                    ЖИВОТНЫЕ ОТСУТСТВУЮТ
+                </label>
             </div>
         ';
 
