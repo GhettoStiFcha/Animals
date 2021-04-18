@@ -14,8 +14,11 @@ class Progression
     {
         $string = '
                 <div class="box">
-                    <input onclick="checkedValueFinder()" class="messageCheckbox" type="checkbox" value="' . $this->a . '"> <p class="input-text">' . $this->text . '</p>
-                </div>
+                    <label class="input-text" for="collapsible' . $this->a . '" style="cursor: pointer;">
+                        <input id="collapsible' . $this->a . '" onclick="checkedValueFinder()" class="messageCheckbox" type="checkbox" value="' . $this->a . '"> 
+                        ' . $this->text . '
+                    </label>
+                </div>              
             ';
 
         return $string;
@@ -98,6 +101,7 @@ class Progression
         $string = '
             <div class="box">
                 <input class="value-input" id="hidden" value="19" type="text">
+                <p class="value-input-text"> </p>
             </div>
         ';
 

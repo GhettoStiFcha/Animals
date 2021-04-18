@@ -8,9 +8,14 @@ window.onload = () => {
     });
 }
 
-function insertDataIntoElement(text, elementID) {
+function insertValueIntoElement(text, elementID) {
     let resultElement = document.getElementById(elementID);
     resultElement.value = text;
+};
+
+function insertDataIntoElement(text, element) {
+    let resultElement = document.querySelector(element);
+    resultElement.innerHTML = text;
 };
 
 function checkedValueFinder() {
@@ -37,7 +42,7 @@ function inputValueChanger(array) {
             sum += Number(array[i]);
         }
     };
-    insertDataIntoElement(sum, 'hidden');
+    insertValueIntoElement(sum, 'hidden');
 }
 
 function findValues() {
@@ -70,8 +75,7 @@ function findValues() {
     if (unique(valuesArray)) {
         return valuesArray;
     } else {
-        alert('Введено неверное значение');
-        console.log(valuesArray);
+        insertDataIntoElement('Введено неверное значение', '.value-input-text');
     }
 }
 
