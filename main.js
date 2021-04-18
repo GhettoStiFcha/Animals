@@ -42,6 +42,7 @@ function inputValueChanger(array) {
             sum += Number(array[i]);
         }
     };
+    insertDataIntoElement('', '.value-input-text');
     insertValueIntoElement(sum, 'hidden');
 }
 
@@ -73,6 +74,7 @@ function findValues() {
     }
 
     if (unique(valuesArray)) {
+        insertDataIntoElement('', '.value-input-text');
         return valuesArray;
     } else {
         insertDataIntoElement('Введено неверное значение', '.value-input-text');
