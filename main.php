@@ -13,14 +13,28 @@ class Progression
     private function createInput()
     {
         $string = '
-                <div class="wrapper">
-                    <div class="input-box">
-                        <div class="box">
-                            <input onclick="checkedValueFinder()" class="messageCheckbox" type="checkbox" value="' . $this->a . '"> <p class="input-text">' . $this->text . '</p>
-                        </div>
-                    </div>
+                <div class="box">
+                    <input onclick="checkedValueFinder()" class="messageCheckbox" type="checkbox" value="' . $this->a . '"> <p class="input-text">' . $this->text . '</p>
                 </div>
             ';
+
+        return $string;
+    }
+
+    public function openDiv(string $divName)
+    {
+        $string = '
+            <div class="' . $divName . '">
+        ';
+
+        return $string;
+    }
+
+    public function closeDiv()
+    {
+        $string = '
+            </div>
+        ';
 
         return $string;
     }
@@ -57,41 +71,37 @@ class Progression
         ';
     }
 
-    public function createQuestion()
+    public function createQuestion(string $question)
     {
-        echo '
-            <div class="wrapper">
-                <div class="question-box">
-                    <p class="question">Какие животные у вас есть?</p>
-                </div>
+        $string = '
+            <div class="question-box">
+                <p class="question">' . $question . '</p>
             </div>
         ';
+        
+        return $string;
     }
 
     public function addNoneInput()
     {
-        echo '
-            <div class="wrapper">
-                <div class="input-box">
-                    <div class="box">
-                        <input onclick="checkedValueFinder()" type="checkbox" value="0"> <p class="input-text">ЖИВОТНЫЕ ОТСУТСТВУЮТ</p>
-                    </div>
-                </div>
+        $string = '
+            <div class="box">
+                <input onclick="checkedValueFinder()" type="checkbox" value="0"> <p class="input-text">ЖИВОТНЫЕ ОТСУТСТВУЮТ</p>
             </div>
         ';
+
+        return $string;
     }
 
     public function createResultInput()
     {
-        echo '
-            <div class="wrapper">
-                <div class="input-box">
-                    <div class="box">
-                        <input id="hidden" value="19" type="text">
-                    </div>
-                </div>
+        $string = '
+            <div class="box">
+                <input class="value-input" id="hidden" value="19" type="text">
             </div>
         ';
+
+        return $string;
     }
 
 }
@@ -99,13 +109,17 @@ class Progression
 $prog = new Progression;
 
 $prog->createPage();
-$prog->createQuestion();
+echo $prog->openDiv('wrapper');
+echo $prog->createQuestion('Какие животные у вас есть?');
+echo $prog->openDiv('input-box');
 echo $prog->addInput('Кошка');
 echo $prog->addInput('Собака');
 echo $prog->addInput('Попугай');
 echo $prog->addInput('Рыбки');
 echo $prog->addInput('Рептилии');
-$prog->addNoneInput();
-$prog->createResultInput();
+echo $prog->addNoneInput();
+echo $prog->createResultInput();
+echo $prog->closeDiv();
+echo $prog->closeDiv();
 
 ?>

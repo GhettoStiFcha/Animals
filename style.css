@@ -5,12 +5,13 @@
 }
 .wrapper{
     margin: 0 auto;
-    width: 1200px;
+    box-sizing: border-box;
+    padding: 10px;
 }
 .question-box{
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 15px;
     flex-direction: column;
     box-sizing: border-box;
@@ -34,10 +35,10 @@
 .input-box{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
     box-sizing: border-box;
+    padding-left: 20px;
 } 
 .box{
     display: flex;
@@ -45,13 +46,13 @@
     margin-bottom: 5px;
 }
 input{
-    margin-top: 2px;
-}
-button{
-    font-size: 20px;
-    text-transform: lowercase;
+    margin-top: 6px;
 }
 .input-text{
-    font-size: 20px;
+    font-size: 30px;
     margin-left: 5px;
+}
+.value-input{
+    font-size: 20px;
+    margin-left: 20px;
 }
